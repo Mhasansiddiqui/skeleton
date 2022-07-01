@@ -1,125 +1,177 @@
-function isTouchEnabled() { return (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0))
-} jQuery(document).ready(function () { jQuery("#frt_base").hide().animate({
+function isTouchEnabled() {
+    return (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0))
+} jQuery(document).ready(function () {
+    jQuery("#frt_base").hide().animate({
         "opacity": "0"
     },
-    100); jQuery("#bck_base").hide().animate({
+        100);
+    jQuery("#bck_base").hide().animate({
         "opacity": "0"
     },
-    100); jQuery("#rht_base").hide().animate({
+        100);
+    jQuery("#rht_base").hide().animate({
         "opacity": "0"
     },
-    100); jQuery(".go_brain_frt").on("click", function () { jQuery("#lft_base").hide().animate({
+        100);
+    jQuery(".go_brain_frt").on("click", function () {
+
+        jQuery("#lft_base").hide().animate({
             "opacity": "0"
         },
-        100); jQuery("#bck_base").hide().animate({
+            100);
+        jQuery("#bck_base").hide().animate({
             "opacity": "0"
         },
-        100); jQuery("#rht_base").hide().animate({
+            100);
+        jQuery("#rht_base").hide().animate({
             "opacity": "0"
         },
-        100); jQuery("#frt_base").show().animate({
+            100);
+        jQuery("#frt_base").show().animate({
             "opacity": "1"
         },
-        100)
-    }); jQuery(".go_brain_bck").on("click", function () { jQuery("#rht_base").hide().animate({
+            100)
+    });
+    jQuery(".go_brain_bck").on("click", function () {
+
+        jQuery("#rht_base").hide().animate({
             "opacity": "0"
         },
-        100); jQuery("#lft_base").hide().animate({
+            100); jQuery("#lft_base").hide().animate({
+                "opacity": "0"
+            },
+                100); jQuery("#frt_base").hide().animate({
+                    "opacity": "0"
+                },
+                    100); jQuery("#bck_base").show().animate({
+                        "opacity": "1"
+                    },
+                        100)
+    }); jQuery(".go_brain_rht").on("click", function () {
+
+        jQuery("#lft_base").hide().animate({
             "opacity": "0"
         },
-        100); jQuery("#frt_base").hide().animate({
+            100); jQuery("#frt_base").hide().animate({
+                "opacity": "0"
+            },
+                100); jQuery("#bck_base").hide().animate({
+                    "opacity": "0"
+                },
+                    100); jQuery("#rht_base").show().animate({
+                        "opacity": "1"
+                    },
+                        100)
+    }); jQuery(".go_brain_lft").on("click", function () {
+
+        jQuery("#frt_base").hide().animate({
             "opacity": "0"
         },
-        100); jQuery("#bck_base").show().animate({
-            "opacity": "1"
-        },
-        100)
-    }); jQuery(".go_brain_rht").on("click", function () { jQuery("#lft_base").hide().animate({
-            "opacity": "0"
-        },
-        100); jQuery("#frt_base").hide().animate({
-            "opacity": "0"
-        },
-        100); jQuery("#bck_base").hide().animate({
-            "opacity": "0"
-        },
-        100); jQuery("#rht_base").show().animate({
-            "opacity": "1"
-        },
-        100)
-    }); jQuery(".go_brain_lft").on("click", function () { jQuery("#frt_base").hide().animate({
-            "opacity": "0"
-        },
-        100); jQuery("#bck_base").hide().animate({
-            "opacity": "0"
-        },
-        100); jQuery("#rht_base").hide().animate({
-            "opacity": "0"
-        },
-        100); jQuery("#lft_base").show().animate({
-            "opacity": "1"
-        },
-        100)
+            100); jQuery("#bck_base").hide().animate({
+                "opacity": "0"
+            },
+                100); jQuery("#rht_base").hide().animate({
+                    "opacity": "0"
+                },
+                    100); jQuery("#lft_base").show().animate({
+                        "opacity": "1"
+                    },
+                        100)
     })
-}); jQuery(function () { jQuery("path[id^=ana]").each(function (i, e) { anaaddEvent(jQuery(e).attr("id"))
+});
+jQuery(function () {
+    jQuery("path[id^=ana]").each(function (i, e) {
+        anaaddEvent(jQuery(e).attr("id"))
     })
-}); function anaaddEvent(id, relationId) { var arr = id.split(""); var _obj = jQuery("#" + id + "," + arr.slice().join("")); _obj.attr({
+});
+
+function anaaddEvent(id, relationId) {
+    var arr = id.split("");
+    var _obj = jQuery("#" + id + "," + arr.slice().join(""));
+
+    _obj.attr({
         "fill": "rgba(255, 0, 0, 0)",
         "stroke": anaconfig.default.outlineColor
-    }); _obj.attr({
+    });
+    _obj.attr({
         "cursor": "default"
-    }); if (anaconfig[id
-    ].enabled === !0) { _obj.attr({
+    });
+
+    if (anaconfig[id
+    ].enabled === !0) {
+        _obj.attr({
             "cursor": "pointer"
-        }); _obj.hover(function () { jQuery("#organs-tip").show().html(anaconfig[id
-            ].hover); _obj.css({
+        });
+        _obj.hover(function () {
+            jQuery("#organs-tip").show().html(anaconfig[id
+            ].hover);
+            _obj.css({
                 "fill": "rgba(255, 0, 0, 0.3)"
             })
-        }, function () { jQuery("#organs-tip").hide(); jQuery("#" + id).css({
+        }, function () {
+            jQuery("#organs-tip").hide(); jQuery("#" + id).css({
                 "fill": "rgba(255, 0, 0, 0)"
             })
-        }); if (anaconfig[id
-        ].target !== "none") { _obj.mousedown(function () { jQuery("#" + id).css({
+        });
+
+        if (anaconfig[id
+        ].target !== "none") {
+            _obj.mousedown(function () {
+                jQuery("#" + id).css({
                     "fill": "rgba(255, 0, 0, 0.7)"
                 })
             })
-        } _obj.mouseup(function () { jQuery("#" + id).css({
+        } _obj.mouseup(function () {
+            jQuery("#" + id).css({
                 "fill": "rgba(255, 0, 0, 0.3)"
             }); if (anaconfig[id
-            ].target === "new_window") { window.open(anaconfig[id
+            ].target === "new_window") {
+                window.open(anaconfig[id
                 ].url)
             } else if (anaconfig[id
-            ].target === "same_window") { window.parent.location.href = anaconfig[id
+            ].target === "same_window") {
+                window.parent.location.href = anaconfig[id
                 ].url
             } else if (anaconfig[id
-            ].target === "modal") { jQuery(anaconfig[id
+            ].target === "modal") {
+                jQuery(anaconfig[id
                 ].url).modal("show")
             }
-        }); _obj.mousemove(function (e) { var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({ left: x, top: y
+        }); _obj.mousemove(function (e) {
+            var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({
+                left: x, top: y
             })
-        }); if (isTouchEnabled()) { _obj.on("touchstart", function (e) { var touch = e.originalEvent.touches[
+        }); if (isTouchEnabled()) {
+            _obj.on("touchstart", function (e) {
+                var touch = e.originalEvent.touches[
                     0
                 ]; var x = touch.pageX + 10, y = touch.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#" + id).css({
                     "fill": "rgba(255, 0, 0, 0.7)"
                 }); jQuery("#organs-tip").show().html(anaconfig[id
-                ].hover); jQuery("#organs-tip").css({ left: x, top: y
+                ].hover); jQuery("#organs-tip").css({
+                    left: x, top: y
                 })
-            }); _obj.on("touchend", function () { jQuery("#" + id).css({
+            }); _obj.on("touchend", function () {
+                jQuery("#" + id).css({
                     "fill": "rgba(255, 0, 0, 0)"
                 }); if (anaconfig[id
-                ].target === "new_window") { window.open(anaconfig[id
+                ].target === "new_window") {
+                    window.open(anaconfig[id
                     ].url)
                 } else if (anaconfig[id
-                ].target === "same_window") { window.parent.location.href = anaconfig[id
+                ].target === "same_window") {
+                    window.parent.location.href = anaconfig[id
                     ].url
                 } else if (anaconfig[id
-                ].target === "modal") { jQuery(anaconfig[id
+                ].target === "modal") {
+                    jQuery(anaconfig[id
                     ].url).modal("show")
                 }
             })
         }
     }
-} var anaconfig = {
+}
+var anaconfig = {
     "default": {
         "outlineColor": "#FF0000"
     },
@@ -285,7 +337,8 @@ function isTouchEnabled() { return (("ontouchstart" in window) || (navigator.Max
         "target": "same_window",
         "enabled": !0
     }
-}; var spotsconfiga = {
+};
+var spotsconfiga = {
     "pins": [
         {
             "hover": "<u><b>Example 'A'</b></u><br>Add unlimited number of spots<br>anywhere on the diagram and<br>customize its colors and size and<br>link it to any webpage.",
@@ -312,7 +365,9 @@ function isTouchEnabled() { return (("ontouchstart" in window) || (navigator.Max
             "enabled": !0
         },
     ]
-}; var spotsconfigb = {
+};
+
+var spotsconfigb = {
     "pins": [
         {
             "hover": "<u><b>Example 'D'</b></u><br>Add unlimited number of spots<br>anywhere on the diagram and<br>customize its colors and size and<br>link it to any webpage.",
@@ -327,135 +382,132 @@ function isTouchEnabled() { return (("ontouchstart" in window) || (navigator.Max
             "enabled": !0
         },
     ]
-}; function isTouchEnabled() { return (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0))
-} jQuery(function () { var pins_len = spotsconfiga.pins.length; if (pins_len > 0) { var xmlns = "http://www.w3.org/2000/svg"; var tsvg_obj = document.getElementById("anaspotsa"); var svg_circle; for (var i = 0; i < pins_len; i++) { svg_circle = document.createElementNS(xmlns,
-            "circle"); svg_circle.setAttributeNS(null,
-            "cx", spotsconfiga.pins[i
-            ].pos_X); svg_circle.setAttributeNS(null,
-            "cy", spotsconfiga.pins[i
-            ].pos_Y); svg_circle.setAttributeNS(null,
-            "r", spotsconfiga.pins[i
-            ].size / 2); svg_circle.setAttributeNS(null,
-            "fill", spotsconfiga.pins[i
-            ].upColor); svg_circle.setAttributeNS(null,
-            "stroke", spotsconfiga.pins[i
-            ].outline); svg_circle.setAttributeNS(null,
-            "stroke-width",
-            1); svg_circle.setAttributeNS(null,
-            "id",
-            "anaspotsa_" + i); tsvg_obj.appendChild(svg_circle); anaspotsaAddEvent(i)
+};
+
+function isTouchEnabled() {
+    return (("ontouchstart" in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0))
+}
+jQuery(function () {
+    var pins_len = spotsconfiga.pins.length;
+    if (pins_len > 0) {
+        var xmlns = "http://www.w3.org/2000/svg";
+        var tsvg_obj = document.getElementById("anaspotsa");
+        var svg_circle;
+        for (var i = 0; i < pins_len; i++) {
+            svg_circle = document.createElementNS(xmlns, "circle");
+            svg_circle.setAttributeNS(null, "cx", spotsconfiga.pins[i].pos_X);
+            svg_circle.setAttributeNS(null, "cy", spotsconfiga.pins[i].pos_Y);
+            svg_circle.setAttributeNS(null, "r", spotsconfiga.pins[i].size / 2);
+            svg_circle.setAttributeNS(null, "fill", spotsconfiga.pins[i].upColor);
+            svg_circle.setAttributeNS(null, "stroke", spotsconfiga.pins[i].outline);
+            svg_circle.setAttributeNS(null, "stroke-width", 1);
+            svg_circle.setAttributeNS(null, "id", "anaspotsa_" + i);
+            tsvg_obj.appendChild(svg_circle);
+            anaspotsaAddEvent(i)
         }
     }
-}); function anaspotsaAddEvent(id) { var obj = jQuery("#anaspotsa_" + id); if (spotsconfiga.pins[id
-    ].enabled === !0) { obj.attr({
-            "cursor": "pointer"
-        }); obj.hover(function () { jQuery("#organs-tip").show().html(spotsconfiga.pins[id
-            ].hover); obj.css({
-                "fill": spotsconfiga.pins[id
-                ].overColor
-            })
-        }, function () { jQuery("#organs-tip").hide(); obj.css({
-                "fill": spotsconfiga.pins[id
-                ].upColor
-            })
-        }); obj.mouseup(function () { obj.css({
-                "fill": spotsconfiga.pins[id
-                ].overColor
-            }); if (spotsconfiga.pins[id
-            ].target === "new_window") { window.open(spotsconfiga.pins[id
-                ].url)
-            } else if (spotsconfiga.pins[id
-            ].target === "same_window") { window.parent.location.href = spotsconfiga.pins[id
-                ].url
-            } else if (spotsconfiga.pins[id
-            ].target === "modal") { jQuery(spotsconfiga.pins[id
-                ].url).modal("show")
+}); function anaspotsaAddEvent(id) {
+    var obj = jQuery("#anaspotsa_" + id);
+    if (spotsconfiga.pins[id].enabled === !0) {
+        obj.attr({ "cursor": "pointer" });
+        obj.hover(function () {
+            jQuery("#organs-tip").show().html(spotsconfiga.pins[id].hover);
+            obj.css({ "fill": spotsconfiga.pins[id].overColor })
+        }, function () {
+            jQuery("#organs-tip").hide();
+            obj.css({ "fill": spotsconfiga.pins[id].upColor })
+        });
+        obj.mouseup(function () {
+            obj.css({
+                "fill": spotsconfiga.pins[id].overColor
+            });
+            if (spotsconfiga.pins[id].target === "new_window") {
+                window.open(spotsconfiga.pins[id].url)
+            } else if (spotsconfiga.pins[id].target === "same_window") {
+                window.parent.location.href = spotsconfiga.pins[id].url
+            } else if (spotsconfiga.pins[id].target === "modal") {
+                jQuery(spotsconfiga.pins[id].url).modal("show")
             }
-        }); obj.mousemove(function (e) { var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({ left: x, top: y
+        }); obj.mousemove(function (e) {
+            var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({
+                left: x, top: y
             })
-        }); if (isTouchEnabled()) { obj.on("touchstart", function (e) { var touch = e.originalEvent.touches[
+        }); if (isTouchEnabled()) {
+            obj.on("touchstart", function (e) {
+                var touch = e.originalEvent.touches[
                     0
                 ]; var x = touch.pageX + 10, y = touch.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").show().html(spotsconfiga.pins[id
-                ].hover); jQuery("#organs-tip").css({ left: x, top: y
-                })
-            }); obj.on("touchend", function () { jQuery("#" + id).css({
-                    "fill": spotsconfiga.pins[id
-                    ].upColor
-                }); if (spotsconfiga.pins[id
-                ].target === "new_window") { window.open(spotsconfiga.pins[id
-                    ].url)
-                } else if (spotsconfiga.pins[id
-                ].target === "same_window") { window.parent.location.href = spotsconfiga.pins[id
-                    ].url
-                } else if (spotsconfiga.pins[id
-                ].target === "modal") { jQuery(spotsconfiga.pins[id
-                    ].url).modal("show")
+                ].hover);
+                jQuery("#organs-tip").css({ left: x, top: y })
+            });
+            obj.on("touchend", function () {
+                jQuery("#" + id).css({ "fill": spotsconfiga.pins[id].upColor });
+                if (spotsconfiga.pins[id].target === "new_window") {
+                    window.open(spotsconfiga.pins[id].url)
+                } else if (spotsconfiga.pins[id].target === "same_window") {
+                    window.parent.location.href = spotsconfiga.pins[id].url
+                } else if (spotsconfiga.pins[id].target === "modal") {
+                    jQuery(spotsconfiga.pins[id].url).modal("show")
                 }
             })
         }
     }
-} jQuery(function () { var pins_len = spotsconfigb.pins.length; if (pins_len > 0) { var xmlns = "http://www.w3.org/2000/svg"; var tsvg_obj = document.getElementById("anaspotsb"); var svg_circle; for (var i = 0; i < pins_len; i++) { svg_circle = document.createElementNS(xmlns,
-            "circle"); svg_circle.setAttributeNS(null,
-            "cx", spotsconfigb.pins[i
-            ].pos_X); svg_circle.setAttributeNS(null,
-            "cy", spotsconfigb.pins[i
-            ].pos_Y); svg_circle.setAttributeNS(null,
-            "r", spotsconfigb.pins[i
-            ].size / 2); svg_circle.setAttributeNS(null,
-            "fill", spotsconfigb.pins[i
-            ].upColor); svg_circle.setAttributeNS(null,
-            "stroke", spotsconfigb.pins[i
-            ].outline); svg_circle.setAttributeNS(null,
-            "stroke-width",
-            1); svg_circle.setAttributeNS(null,
-            "id",
-            "anaspotsb_" + i); tsvg_obj.appendChild(svg_circle); anaspotsbAddEvent(i)
+} jQuery(function () {
+    var pins_len = spotsconfigb.pins.length; if (pins_len > 0) {
+        var xmlns = "http://www.w3.org/2000/svg"; var tsvg_obj = document.getElementById("anaspotsb"); var svg_circle; for (var i = 0; i < pins_len; i++) {
+            svg_circle = document.createElementNS(xmlns, "circle");
+            svg_circle.setAttributeNS(null, "cx", spotsconfigb.pins[i].pos_X);
+            svg_circle.setAttributeNS(null, "cy", spotsconfigb.pins[i].pos_Y);
+            svg_circle.setAttributeNS(null, "r", spotsconfigb.pins[i].size / 2);
+            svg_circle.setAttributeNS(null, "fill", spotsconfigb.pins[i].upColor);
+            svg_circle.setAttributeNS(null, "stroke", spotsconfigb.pins[i].outline);
+            svg_circle.setAttributeNS(null, "stroke-width", 1);
+            svg_circle.setAttributeNS(null, "id", "anaspotsb_" + i);
+            tsvg_obj.appendChild(svg_circle);
+            anaspotsbAddEvent(i)
         }
     }
-}); function anaspotsbAddEvent(id) { var obj = jQuery("#anaspotsb_" + id); if (spotsconfigb.pins[id
-    ].enabled === !0) { obj.attr({
-            "cursor": "pointer"
-        }); obj.hover(function () { jQuery("#organs-tip").show().html(spotsconfigb.pins[id
-            ].hover); obj.css({
-                "fill": spotsconfigb.pins[id
-                ].overColor
-            })
-        }, function () { jQuery("#organs-tip").hide(); obj.css({
-                "fill": spotsconfigb.pins[id
-                ].upColor
-            })
-        }); obj.mouseup(function () { obj.css({
-                "fill": spotsconfigb.pins[id
-                ].overColor
-            }); if (spotsconfigb.pins[id
-            ].target === "new_window") { window.open(spotsconfigb.pins[id
-                ].url)
-            } else if (spotsconfigb.pins[id
-            ].target === "same_window") { window.parent.location.href = spotsconfigb.pins[id
-                ].url
-            } else if (spotsconfigb.pins[id
-            ].target === "modal") { jQuery(spotsconfigb.pins[id
-                ].url).modal("show")
+}); function anaspotsbAddEvent(id) {
+    var obj = jQuery("#anaspotsb_" + id); if (spotsconfigb.pins[id].enabled === !0) {
+        obj.attr({ "cursor": "pointer" });
+        obj.hover(function () {
+            jQuery("#organs-tip").show().html(spotsconfigb.pins[id].hover);
+            obj.css({ "fill": spotsconfigb.pins[id].overColor })
+        }, function () {
+            jQuery("#organs-tip").hide();
+            obj.css({ "fill": spotsconfigb.pins[id].upColor })
+        }); obj.mouseup(function () {
+            obj.css({ "fill": spotsconfigb.pins[id].overColor });
+            if (spotsconfigb.pins[id].target === "new_window") {
+                window.open(spotsconfigb.pins[id].url)
+            } else if (spotsconfigb.pins[id].target === "same_window") {
+                window.parent.location.href = spotsconfigb.pins[id].url
+            } else if (spotsconfigb.pins[id].target === "modal") {
+                jQuery(spotsconfigb.pins[id].url).modal("show")
             }
-        }); obj.mousemove(function (e) { var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({ left: x, top: y
+        }); obj.mousemove(function (e) {
+            var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({
+                left: x, top: y
             })
-        }); if (isTouchEnabled()) { obj.on("touchstart", function (e) { var touch = e.originalEvent.touches[
+        }); if (isTouchEnabled()) {
+            obj.on("touchstart", function (e) {
+                var touch = e.originalEvent.touches[
                     0
                 ]; var x = touch.pageX + 10, y = touch.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").show().html(spotsconfigb.pins[id
-                ].hover); jQuery("#organs-tip").css({ left: x, top: y
+                ].hover);
+                jQuery("#organs-tip").css({
+                    left: x, top: y
                 })
-            }); obj.on("touchend", function () { jQuery("#" + id).css({
-                    "fill": spotsconfigb.pins[id
-                    ].upColor
-                }); if (spotsconfigb.pins[id
-                ].target === "new_window") { window.open(spotsconfigb.pins[id
-                    ].url)
-                } else if (spotsconfigb.pins[id
-                ].target === "same_window") { window.parent.location.href = spotsconfigb.pins[id
-                    ].url
-                } else if (spotsconfigb.pins[id
-                ].target === "modal") { jQuery(spotsconfigb.pins[id
-                    ].url).modal("show")
+            });
+            obj.on("touchend", function () {
+                jQuery("#" + id).css({
+                    "fill": spotsconfigb.pins[id].upColor
+                }); if (spotsconfigb.pins[id].target === "new_window") {
+                    window.open(spotsconfigb.pins[id].url)
+                } else if (spotsconfigb.pins[id].target === "same_window") {
+                    window.parent.location.href = spotsconfigb.pins[id].url
+                } else if (spotsconfigb.pins[id].target === "modal") {
+                    jQuery(spotsconfigb.pins[id].url).modal("show")
                 }
             })
         }
