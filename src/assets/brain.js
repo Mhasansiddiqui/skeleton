@@ -67,16 +67,19 @@ function isTouchEnabled() {
         jQuery("#frt_base").hide().animate({
             "opacity": "0"
         },
-            100); jQuery("#bck_base").hide().animate({
-                "opacity": "0"
-            },
-                100); jQuery("#rht_base").hide().animate({
-                    "opacity": "0"
-                },
-                    100); jQuery("#lft_base").show().animate({
-                        "opacity": "1"
-                    },
-                        100)
+            100);
+        jQuery("#bck_base").hide().animate({
+            "opacity": "0"
+        },
+            100);
+        jQuery("#rht_base").hide().animate({
+            "opacity": "0"
+        },
+            100);
+        jQuery("#lft_base").show().animate({
+            "opacity": "1"
+        },
+            100)
     })
 });
 jQuery(function () {
@@ -97,8 +100,7 @@ function anaaddEvent(id, relationId) {
         "cursor": "default"
     });
 
-    if (anaconfig[id
-    ].enabled === !0) {
+    if (anaconfig[id].enabled === !0) {
         _obj.attr({
             "cursor": "pointer"
         });
@@ -114,8 +116,7 @@ function anaaddEvent(id, relationId) {
             })
         });
 
-        if (anaconfig[id
-        ].target !== "none") {
+        if (anaconfig[id ].target !== "none") {
             _obj.mousedown(function () {
                 jQuery("#" + id).css({
                     "fill": "rgba(255, 0, 0, 0.7)"
@@ -132,10 +133,8 @@ function anaaddEvent(id, relationId) {
             ].target === "same_window") {
                 window.parent.location.href = anaconfig[id
                 ].url
-            } else if (anaconfig[id
-            ].target === "modal") {
-                jQuery(anaconfig[id
-                ].url).modal("show")
+            } else if (anaconfig[id].target === "modal") {
+                jQuery(anaconfig[id].url).modal("show")
             }
         }); _obj.mousemove(function (e) {
             var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({
@@ -428,8 +427,11 @@ jQuery(function () {
             } else if (spotsconfiga.pins[id].target === "modal") {
                 jQuery(spotsconfiga.pins[id].url).modal("show")
             }
-        }); obj.mousemove(function (e) {
-            var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({
+        });
+        obj.mousemove(function (e) {
+            var x = e.pageX + 10, y = e.pageY + 15;
+            var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y;
+            jQuery("#organs-tip").css({
                 left: x, top: y
             })
         }); if (isTouchEnabled()) {
@@ -468,7 +470,8 @@ jQuery(function () {
         }
     }
 }); function anaspotsbAddEvent(id) {
-    var obj = jQuery("#anaspotsb_" + id); if (spotsconfigb.pins[id].enabled === !0) {
+    var obj = jQuery("#anaspotsb_" + id);
+     if (spotsconfigb.pins[id].enabled === !0) {
         obj.attr({ "cursor": "pointer" });
         obj.hover(function () {
             jQuery("#organs-tip").show().html(spotsconfigb.pins[id].hover);
@@ -476,7 +479,8 @@ jQuery(function () {
         }, function () {
             jQuery("#organs-tip").hide();
             obj.css({ "fill": spotsconfigb.pins[id].upColor })
-        }); obj.mouseup(function () {
+        });
+        obj.mouseup(function () {
             obj.css({ "fill": spotsconfigb.pins[id].overColor });
             if (spotsconfigb.pins[id].target === "new_window") {
                 window.open(spotsconfigb.pins[id].url)
@@ -485,11 +489,13 @@ jQuery(function () {
             } else if (spotsconfigb.pins[id].target === "modal") {
                 jQuery(spotsconfigb.pins[id].url).modal("show")
             }
-        }); obj.mousemove(function (e) {
+        });
+        obj.mousemove(function (e) {
             var x = e.pageX + 10, y = e.pageY + 15; var tipw = jQuery("#organs-tip").outerWidth(), tiph = jQuery("#organs-tip").outerHeight(), x = (x + tipw > jQuery(document).scrollLeft() + jQuery(window).width()) ? x - tipw - (20 * 2) : x; y = (y + tiph > jQuery(document).scrollTop() + jQuery(window).height()) ? jQuery(document).scrollTop() + jQuery(window).height() - tiph - 10 : y; jQuery("#organs-tip").css({
                 left: x, top: y
             })
-        }); if (isTouchEnabled()) {
+        });
+        if (isTouchEnabled()) {
             obj.on("touchstart", function (e) {
                 var touch = e.originalEvent.touches[
                     0

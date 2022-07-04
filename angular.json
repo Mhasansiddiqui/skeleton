@@ -28,9 +28,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/custom.min.css"
             ],
-            "scripts": ["src/assets/brain.js"]
+            "scripts": ["src/assets/unisex.min.js"]
           },
           "configurations": {
             "production": {
