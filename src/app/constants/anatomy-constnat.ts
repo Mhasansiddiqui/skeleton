@@ -1,6 +1,6 @@
 export class APPCONSTANT {
    static readonly ANATOMY = {
-    unisex : 0,
-    child: 1
+    UNISEX : 0,
+    CHILD: 1
   }
 };

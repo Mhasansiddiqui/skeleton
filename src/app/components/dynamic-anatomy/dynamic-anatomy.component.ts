@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
-import { AnatomyService } from 'src/app/services/anatomy.service';
 import { APPCONSTANT} from 'src/app/constants/anatomy-constnat';
 declare let $: any;
 
@@ -61,10 +60,9 @@ export class DynamicAnatomyComponent implements OnInit {
     }
   }
 
-  constructor(private anatomyService:AnatomyService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.appConstant)
     $(document).ready(function () {
       $('#bck_base').hide().animate({
         'opacity': '0'

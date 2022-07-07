@@ -1,6 +1,7 @@
 <!-- header -->
-<button (click)="changeAnatomy(APPCONSTANT.ANATOMY.unisex)">UniSex</button>
-<button (click)="changeAnatomy(APPCONSTANT.ANATOMY.child)">Child</button>
+<!---->
+
+<app-header (eventId)="changeAnatomy($event)" ></app-header>
 
 <!-- body -->
  <app-dynamic-anatomy [config]="uniSexConfig" [id]="id"></app-dynamic-anatomy>

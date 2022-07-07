@@ -1,0 +1,30 @@
+body{
+    font-family: 'Inter', sans-serif;
+    color: #100d0d;
+}
+
+.layout{
+    display: flex;
+    justify-content: space-between;
+    width:80%;
+    margin: auto;
+}
+.img-logo{
+    width: 40px;
+    height: 40px;
+}
+.heading-logo{
+    color: red;
+    font-weight:500;
+}
+a{
+    margin: 8px;
+    cursor: pointer;
+}
+a:hover{
+   color:black;
+}
+
+.logo-sperator{
+    margin-left: 10px;
+}
