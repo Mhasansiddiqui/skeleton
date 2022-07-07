@@ -1,28 +1,30 @@
-body{
-    font-family: 'Inter', sans-serif;
-    color: #100d0d;
-}
+
 
 .layout{
     display: flex;
     justify-content: space-between;
     width:80%;
     margin: auto;
+    color: #21489e;
+    align-items: center;
+    font-weight: 200;
 }
 .img-logo{
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
+    vertical-align: middle;
 }
 .heading-logo{
-    color: red;
+    color: #ea232a;
     font-weight:500;
+    margin-left: 8px;
 }
 a{
     margin: 8px;
     cursor: pointer;
 }
 a:hover{
-   color:black;
+   color: #ea232a;
 }
 
 .logo-sperator{
