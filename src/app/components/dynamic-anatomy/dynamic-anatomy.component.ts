@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input,AfterViewInit } from '@angular/core';
 import { APPCONSTANT} from 'src/app/constants/anatomy-constnat';
 declare let $: any;
 
@@ -7,7 +7,7 @@ declare let $: any;
   templateUrl: './dynamic-anatomy.component.html',
   styleUrls: ['./dynamic-anatomy.component.scss']
 })
-export class DynamicAnatomyComponent implements OnInit {
+export class DynamicAnatomyComponent  {
   
   @Input() config : object;
   @Input() id : number;
@@ -30,7 +30,22 @@ export class DynamicAnatomyComponent implements OnInit {
 
   @HostListener('click', ['$event.target'])
   onClick(event: any) {
-    console.log(this.config[event.id]);
+    if(event.id == 'turn_front'){
+      $('#bck_base').hide().animate({
+        'opacity': '0'
+      }, 300);
+      $('#frt_base').show().animate({
+        'opacity': '1'
+      }, 300)
+    } else if(event.id == 'turn_back'){
+      $('#frt_base').hide().animate({
+        'opacity': '0'
+      }, 300);
+      $('#bck_base').show().animate({
+        'opacity': '1'
+      }, 300)
+    }
+    
   }
 
   @HostListener('mousemove', ['$event.target'])
@@ -61,29 +76,4 @@ export class DynamicAnatomyComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit(): void {
-    $(document).ready(function () {
-      $('#bck_base').hide().animate({
-        'opacity': '0'
-      }, 300);
-      $('.go_bck').on('click', function () {
-        $('#frt_base').hide().animate({
-          'opacity': '0'
-        }, 300);
-        $('#bck_base').show().animate({
-          'opacity': '1'
-        }, 300)
-      });
-      $('.go_frt').on('click', function () {
-        $('#bck_base').hide().animate({
-          'opacity': '0'
-        }, 300);
-        $('#frt_base').show().animate({
-          'opacity': '1'
-        }, 300)
-      })
-    });
-
-  }
 }
