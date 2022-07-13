@@ -34,3 +34,19 @@ a:hover{
 .active{
     color: #ea232a;
 }
+
+.w-4 {
+    width: 1rem;
+}
+.arrow-alignment {
+    vertical-align: sub;
+}
+.logout {
+   background-color: #f7fafc;
+   padding: 4px;
+   border-radius: 3px;
+}
+.logout:hover{
+    background-color: rgb(237,242,247);
+    cursor: pointer;
+}

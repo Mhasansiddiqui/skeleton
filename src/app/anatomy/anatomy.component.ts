@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { APPCONSTANT } from '@constants/anatomy-constant';
 import { UNISEX_CONFIG_SETTINGS } from '@settings/unisex-config';
 import { SKELETON_CONFIG_SETTINGS } from '@settings/skeleton-config';
+import { ORGAN_CONFIG_SETTINGS } from '@settings/organ-config';
+import { FEMALE_CONFIG_SETTINGS } from '@settings/female-config';
 import { iSkeleton } from '@interface/skeleton-interface';
+import { MALE_CONFIG_SETTINGS } from '@settings/male-config';
 
 @Component({
   selector: 'app-anatomy',
@@ -26,6 +29,12 @@ export class AnatomyComponent implements OnInit {
       this.config = SKELETON_CONFIG_SETTINGS;
     } else if (this.appConstant.ANATOMY.CHILD === this.id || this.appConstant.ANATOMY.UNISEX === this.id) {
       this.config = UNISEX_CONFIG_SETTINGS;
+    } else if(this.appConstant.ANATOMY.ORGAN === this.id){
+      this.config = ORGAN_CONFIG_SETTINGS;
+    } else if(this.appConstant.ANATOMY.FEMALE === this.id){
+      this.config = FEMALE_CONFIG_SETTINGS;
+    } else if(this.appConstant.ANATOMY.MALE === this.id){
+      this.config = MALE_CONFIG_SETTINGS;
     }
   }
 }

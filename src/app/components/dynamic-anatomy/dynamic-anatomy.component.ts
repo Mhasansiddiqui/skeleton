@@ -38,7 +38,6 @@ export class DynamicAnatomyComponent  {
    */
   @HostListener('click', ['$event.target'])
   onClick(event: any) {
-     console.log(this.config[event.id]);
     if(event.id == 'turn_front'){
       $('#bck_base').hide().animate({
         'opacity': '0'
