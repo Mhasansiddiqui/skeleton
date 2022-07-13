@@ -3,12 +3,12 @@
     <nav class="nav-alignment">
         <a class="logo"> <img class="img-logo" src="assets/logo.png" /> <span class="heading-logo">Indus Hospital</span> <span class="logo-sperator"> | </span> </a>
         
-        <a (click)="changeAnatomy(APPCONSTANT.ANATOMY.UNISEX)"> Human Muscular System</a>
-        <a>Human Organ System</a>
-        <a>Human Skeleton</a>
-        <a>Male</a>
-        <a>Female</a>
-        <a (click)="changeAnatomy(APPCONSTANT.ANATOMY.CHILD)">Child</a>
+        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.UNISEX === currentId}"  (click)="changeAnatomy(APPCONSTANT.ANATOMY.UNISEX)"> Human Muscular System</a>
+        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.ORGAN === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.ORGAN)">Human Organ System</a>
+        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.SKELETON === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.SKELETON)" >Human Skeleton</a>
+        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.MALE === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.MALE)" >Male</a>
+        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.FEMALE === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.FEMALE)">Female</a>
+        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.CHILD === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.CHILD)">Child</a>
     </nav>
     <div>logout</div>
 </div>

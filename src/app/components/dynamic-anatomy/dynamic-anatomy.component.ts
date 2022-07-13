@@ -1,5 +1,5 @@
-import { Component, OnInit, HostListener, Input,AfterViewInit } from '@angular/core';
-import { APPCONSTANT} from 'src/app/constants/anatomy-constnat';
+import { Component, HostListener, Input } from '@angular/core';
+import { APPCONSTANT} from '@constants/anatomy-constant';
 declare let $: any;
 
 @Component({
@@ -14,10 +14,14 @@ export class DynamicAnatomyComponent  {
   
   public appConstant = APPCONSTANT;
   
+  /**
+   * this code will popup body part discription
+   * @param event get mouse event
+   */
   @HostListener('document:mousemove', ['$event'])
-  onMouseMove(e: MouseEvent) {
-    var x = e.pageX + 10,
-      y = e.pageY + 15;
+  onMouseMove(event: MouseEvent) {
+    var x = event.pageX + 10,
+      y = event.pageY + 15;
     var tipw = $('#organs-tip').outerWidth(),
       tiph = $('#organs-tip').outerHeight(),
       x = (x + tipw > $(document).scrollLeft() + $(window).width()) ? x - tipw - (20 * 2) : x
@@ -28,8 +32,13 @@ export class DynamicAnatomyComponent  {
     })
   }
 
+  /**
+   * this code will swap front and back image
+   * @param event is current mouse event
+   */
   @HostListener('click', ['$event.target'])
   onClick(event: any) {
+     console.log(this.config[event.id]);
     if(event.id == 'turn_front'){
       $('#bck_base').hide().animate({
         'opacity': '0'
@@ -48,29 +57,31 @@ export class DynamicAnatomyComponent  {
     
   }
 
+  // on mousemove colour will highlight
   @HostListener('mousemove', ['$event.target'])
   onMousemove(event: any) {
-    if (event.id) {
+    if (event.id && event.id !== 'turn_back' && event.id !== 'turn_front') {
       var _obj = $('#' + event.id);
-      $('#organs-tip').show().html(this.config[event.id].hover);
+      $('#organs-tip').show().html(this.config[event.id]?.hover);
       _obj.css({
-        'fill': this.config[event.id].overColor,
-        'fill-opacity': this.config[event.id].overOpacity,
-        'stroke': this.config[event.id].outlineOverColor,
-        'stroke-opacity': this.config[event.id].outlineOverOpacity
+        'fill': this.config[event.id]?.overColor,
+        'fill-opacity': this.config[event.id]?.overOpacity,
+        'stroke': this.config[event.id]?.outlineOverColor,
+        'stroke-opacity': this.config[event.id]?.outlineOverOpacity
       })
     }
   }
 
+  // on mouseout of body re-colour will fire
   @HostListener('mouseout', ['$event.target'])
   onMouseout(event: any) {
     if (event.id) {
       $('#organs-tip').hide();
       $('#' + event.id).css({
-        'fill': this.config[event.id].upColor,
-        'fill-opacity': this.config[event.id].upOpacity,
-        'stroke': this.config[event.id].outlineUpColor,
-        'stroke-opacity': this.config[event.id].outlineUpOpacity
+        'fill': this.config[event.id]?.upColor,
+        'fill-opacity': this.config[event.id]?.upOpacity,
+        'stroke': this.config[event.id]?.outlineUpColor,
+        'stroke-opacity': this.config[event.id]?.outlineUpOpacity
       })
     }
   }

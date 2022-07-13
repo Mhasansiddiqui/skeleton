@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UnisexComponent } from './anatomy/unisex/unisex.component';
+import { AnatomyComponent } from '@app/anatomy/anatomy.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: UnisexComponent
+    component: AnatomyComponent
   }
 ];
 

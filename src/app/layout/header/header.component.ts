@@ -1,5 +1,5 @@
 import { Component, EventEmitter , Output } from '@angular/core';
-import { APPCONSTANT } from 'src/app/constants/anatomy-constnat';
+import { APPCONSTANT } from '@constants/anatomy-constant';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +11,12 @@ export class HeaderComponent {
   @Output() eventId  = new EventEmitter<number>();
   
   public APPCONSTANT = APPCONSTANT;
+  public currentId : number = APPCONSTANT.ANATOMY.UNISEX;
 
   constructor() { }
   
   changeAnatomy(id?: number) {
+    this.currentId = id;
     this.eventId.emit(id);
   }
 

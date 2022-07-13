@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UnisexComponent } from './unisex.component';
+import { AnatomyComponent } from './anatomy.component';
 
-describe('UnisexComponent', () => {
-  let component: UnisexComponent;
-  let fixture: ComponentFixture<UnisexComponent>;
+describe('AnatomyComponent', () => {
+  let component: AnatomyComponent;
+  let fixture: ComponentFixture<AnatomyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UnisexComponent ]
+      declarations: [ AnatomyComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UnisexComponent);
+    fixture = TestBed.createComponent(AnatomyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

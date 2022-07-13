@@ -5,8 +5,16 @@
     "suppressImplicitAnyIndexErrors": true,
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@components/*": ["src/app/components/*"],
+      "@interface/*": ["src/app/interface/*"],
+      "@services/*": ["src/app/services/*"],
+      "@settings/*": ["src/app/settings/*"],
+      "@constants/*": ["src/app/constants/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
