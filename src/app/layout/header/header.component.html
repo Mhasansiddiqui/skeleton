@@ -1,16 +1,29 @@
 <div class="layout">
-  
+
     <nav class="nav-alignment">
-        <a class="logo"> <img class="img-logo" src="assets/logo.png" /> <span class="heading-logo">Indus Hospital</span> <span class="logo-sperator"> | </span> </a>
-        
-        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.MALE === currentId}"  (click)="changeAnatomy(APPCONSTANT.ANATOMY.MALE)"> Human Muscular System</a>
-        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.ORGAN === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.ORGAN)">Human Organ System</a>
-        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.SKELETON === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.SKELETON)" >Human Skeleton</a>
-        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.UNISEX === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.UNISEX)" >Male</a>
-        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.FEMALE === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.FEMALE)">Female</a>
-        <a [ngClass]="{'active': APPCONSTANT.ANATOMY.CHILD === currentId}" (click)="changeAnatomy(APPCONSTANT.ANATOMY.CHILD)">Child</a>
+        <a class="logo"> <img class="img-logo" src="assets/logo.png" /> <span class="heading-logo">Indus Hospital</span>
+            <span class="logo-sperator"> | </span>
+        </a>
+
+        <div class="nav-a">
+            <a class="nav-highight" [ngClass]="{'active': APPCONSTANT.ANATOMY.MALE === currentId}"
+                (click)="changeAnatomy(APPCONSTANT.ANATOMY.MALE)"> Human Muscular System</a>
+            <a class="nav-highight" [ngClass]="{'active': APPCONSTANT.ANATOMY.ORGAN === currentId}"
+                (click)="changeAnatomy(APPCONSTANT.ANATOMY.ORGAN)">Human Organ System</a>
+            <a class="nav-highight" [ngClass]="{'active': APPCONSTANT.ANATOMY.SKELETON === currentId}"
+                (click)="changeAnatomy(APPCONSTANT.ANATOMY.SKELETON)">Human Skeleton</a>
+            <a  class="nav-highight"[ngClass]="{'active': APPCONSTANT.ANATOMY.UNISEX === currentId}"
+                (click)="changeAnatomy(APPCONSTANT.ANATOMY.UNISEX)">Male</a>
+            <a class="nav-highight" [ngClass]="{'active': APPCONSTANT.ANATOMY.FEMALE === currentId}"
+                (click)="changeAnatomy(APPCONSTANT.ANATOMY.FEMALE)">Female</a>
+            <a class="nav-highight" [ngClass]="{'active': APPCONSTANT.ANATOMY.CHILD === currentId}"
+                (click)="changeAnatomy(APPCONSTANT.ANATOMY.CHILD)">Child</a>
+            <a class="nav-highight" >Logout <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1 arrow-alignment " viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
     </nav>
-    <div class="logout">Logout <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1 arrow-alignment " viewBox="0 0 24 24">
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-      </svg></div>
+
 </div>

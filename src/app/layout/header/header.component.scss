@@ -1,52 +1,123 @@
-
-
-.layout{
+.layout {
     display: flex;
     justify-content: space-between;
-    width:80%;
+    width: 80%;
     margin: 1rem auto 1rem auto;
     color: #21489e;
     align-items: center;
     font-weight: 200;
 }
-.img-logo{
+
+.img-logo {
     width: 56px;
     height: 56px;
     vertical-align: middle;
 }
-.heading-logo{
+
+.heading-logo {
     color: #ea232a;
-    font-weight:500;
+    font-weight: 500;
     margin-left: 8px;
 }
-a{
-    margin: 8px;
+
+a {
     cursor: pointer;
 }
-a:hover{
-   color: #ea232a;
+
+a:hover {
+    color: #ea232a;
 }
 
-.logo-sperator{
+.logo-sperator {
     margin-left: 10px;
 }
 
-.active{
+.active {
     color: #ea232a;
 }
 
 .w-4 {
     width: 1rem;
 }
+
 .arrow-alignment {
     vertical-align: sub;
 }
-.logout {
-   background-color: #f7fafc;
-   padding: 2px 8px 2px 8px;
-   border-radius: 3px;
+
+.nav-highight {
+    padding: 2px 8px 2px 8px;
+    border-radius: 3px;
 }
-.logout:hover{
-    background-color: rgb(237,242,247);
+
+.nav-a > a:hover,.logout:hover {
+    background-color: rgb(237, 242, 247);
     cursor: pointer;
+}
+
+.nav-a {
+    display: flex;
+    margin-top: 6px;
+}
+
+.nav-a a:last-child {
+    margin: auto;
+    position: absolute;
+    right: 0;
+}
+
+.nav-a a:first-child{
+    margin-left: 6px;
+}
+
+.nav-alignment {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    position: relative;
+}
+
+
+
+@media screen and (max-width : 1270px) {
+    .nav-alignment {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo-sperator {
+        display: none;
+    }
+
+    .logo {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width : 1015px) {
+    .md-a {
+        display: none;
+    }
+
+    .nav-a {
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .nav-alignment {
+        position: unset;
+    }
+
+    .nav-a a:last-child {
+        margin: unset;
+        position: unset;
+        margin-top: 0;
+    }
+    .nav-a a:first-child{
+        margin-left: 0;
+    }
 }

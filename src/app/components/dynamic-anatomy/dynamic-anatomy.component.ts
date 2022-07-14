@@ -12,7 +12,7 @@ export class DynamicAnatomyComponent {
   @Input() config: iSkeleton;
   @Input() id: number;
 
-  public appConstant = APPCONSTANT;
+  public appConstant : any = APPCONSTANT;
   @ViewChild('organsTip') organsTip: ElementRef;
   @ViewChild('frtBase') frtBase: ElementRef;
 
