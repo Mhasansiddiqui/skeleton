@@ -27,7 +27,7 @@ export class DynamicAnatomyComponent {
     var tipw = this.organsTip.nativeElement.style.clientWidth,
       tiph = this.organsTip.nativeElement.style.clientHeight,
       x = (x + tipw > document.scrollingElement.scrollLeft + window.innerWidth) ? x - tipw - (20 * 2) : x
-    y = (y + tiph > document.scrollingElement.scrollTop + window.innerHeight) ? $(document).scrollTop() + window.innerHeight - tiph - 10 : y
+    y = (y + tiph > document.scrollingElement.scrollTop + window.innerHeight) ?  document.scrollingElement.scrollTop + window.innerHeight - tiph - 10 : y
 
     this.organsTip.nativeElement.style.left = x + 'px';
     this.organsTip.nativeElement.style.top = y + 'px';
