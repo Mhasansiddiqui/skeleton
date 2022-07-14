@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     width:80%;
-    margin: auto;
+    margin: 1rem auto 1rem auto;
     color: #21489e;
     align-items: center;
     font-weight: 200;
@@ -43,7 +43,7 @@ a:hover{
 }
 .logout {
    background-color: #f7fafc;
-   padding: 4px;
+   padding: 2px 8px 2px 8px;
    border-radius: 3px;
 }
 .logout:hover{

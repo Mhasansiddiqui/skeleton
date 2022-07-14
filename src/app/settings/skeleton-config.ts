@@ -1,4 +1,5 @@
 export const  SKELETON_CONFIG_SETTINGS = {
+    'title_desc' : 'Human skeleton',
     'b1': {
         'hover': '<b><u>SKULL</u></b><br>Write any text and load images<br>',
         'enable': !0,

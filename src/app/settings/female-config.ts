@@ -1,4 +1,5 @@
 export const FEMALE_CONFIG_SETTINGS = {
+    'title_desc' : 'Female front - back',
     'frt_1': {
         'hover': '<b><u>HEAD</u></b><br>Write any text and load images<br>',
         'enable': !0,

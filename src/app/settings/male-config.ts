@@ -1,4 +1,5 @@
 export const MALE_CONFIG_SETTINGS = {
+    'title_desc' : 'Human muscular system',
     'ft_1': {
         'hover': '<b><u>STERNOCLEIDOMASTOID</u></b><br>Write any text and load images<br>',
         'enable': !0,

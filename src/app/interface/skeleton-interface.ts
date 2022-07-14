@@ -1,1 +1,1 @@
-export interface iSkeleton { [key: string]: object; }
+export interface iSkeleton { [key: string]: any; }

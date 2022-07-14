@@ -6,6 +6,7 @@ import { ORGAN_CONFIG_SETTINGS } from '@settings/organ-config';
 import { FEMALE_CONFIG_SETTINGS } from '@settings/female-config';
 import { iSkeleton } from '@interface/skeleton-interface';
 import { MALE_CONFIG_SETTINGS } from '@settings/male-config';
+import { CHILD_CONFIG_SETTINGS } from '@settings/child-config';
 
 @Component({
   selector: 'app-anatomy',
@@ -27,7 +28,9 @@ export class AnatomyComponent implements OnInit {
     this.id = id;
     if (this.appConstant.ANATOMY.SKELETON === this.id) {
       this.config = SKELETON_CONFIG_SETTINGS;
-    } else if (this.appConstant.ANATOMY.CHILD === this.id || this.appConstant.ANATOMY.UNISEX === this.id) {
+    } else if (this.appConstant.ANATOMY.CHILD === this.id) {
+      this.config = CHILD_CONFIG_SETTINGS;
+    } else if(this.appConstant.ANATOMY.UNISEX === this.id){
       this.config = UNISEX_CONFIG_SETTINGS;
     } else if(this.appConstant.ANATOMY.ORGAN === this.id){
       this.config = ORGAN_CONFIG_SETTINGS;

@@ -1,4 +1,5 @@
 import { Component, HostListener, Input } from '@angular/core';
+import { iSkeleton } from '@interface/skeleton-interface';
 import { APPCONSTANT} from '@constants/anatomy-constant';
 declare let $: any;
 
@@ -9,7 +10,7 @@ declare let $: any;
 })
 export class DynamicAnatomyComponent  {
   
-  @Input() config : object;
+  @Input() config : iSkeleton;
   @Input() id : number;
   
   public appConstant = APPCONSTANT;
