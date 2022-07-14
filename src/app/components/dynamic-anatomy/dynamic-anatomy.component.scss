@@ -49,8 +49,6 @@
     opacity: .4
 }
 
-
-
 .go_bck_frontback,
 .go_frt_frontback {
     fill: #72B8FC;
@@ -101,7 +99,8 @@
 }
 
 #organs-tip {
-    font: 14px/16px Trebuchet MS, Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     display: none;
     padding: 5px;
     border: 1px solid #404040;

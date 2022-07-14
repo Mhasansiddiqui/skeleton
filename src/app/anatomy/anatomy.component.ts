@@ -17,7 +17,7 @@ export class AnatomyComponent implements OnInit {
 
   public config: iSkeleton;
   id: number;
-  public appConstant = APPCONSTANT;
+  public appConstant : any = APPCONSTANT;
 
   constructor() { }
 
