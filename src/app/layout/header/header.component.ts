@@ -11,7 +11,7 @@ export class HeaderComponent {
   @Output() eventId :EventEmitter<number> = new EventEmitter<number>();
   
   public APPCONSTANT : any = APPCONSTANT;
-  public currentId : number = APPCONSTANT.ANATOMY.UNISEX;
+  public currentId : number = APPCONSTANT.ANATOMY.CHILD;
 
   constructor() { }
   

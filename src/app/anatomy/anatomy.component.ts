@@ -22,7 +22,7 @@ export class AnatomyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.changeAnatomy(this.appConstant.ANATOMY.UNISEX);
+    this.changeAnatomy(this.appConstant.ANATOMY.CHILD);
   }
   changeAnatomy(id?: number) {
     this.id = id;

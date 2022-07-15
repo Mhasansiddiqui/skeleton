@@ -1,19 +1,29 @@
-import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, ViewChild } from '@angular/core';
 import { iSkeleton } from '@interface/skeleton-interface';
 import { APPCONSTANT } from '@constants/anatomy-constant';
+import { MESSAGE_CONSTANT } from '@app/constants/message-constants';
 
 @Component({
   selector: 'app-dynamic-anatomy',
   templateUrl: './dynamic-anatomy.component.html',
   styleUrls: ['./dynamic-anatomy.component.scss']
 })
-export class DynamicAnatomyComponent {
+export class DynamicAnatomyComponent implements OnChanges {
 
   @Input() config: iSkeleton;
   @Input() id: number;
 
   public appConstant: any = APPCONSTANT;
   @ViewChild('organsTip') organsTip: ElementRef;
+
+  public selectedItems: Array<any> = [];
+  public noRecordSelected : string = MESSAGE_CONSTANT.NoRecordSelected;
+
+  ngOnChanges(params : any){
+      if(params.id){
+          this.selectedItems = [];
+      }
+  }
 
   /**
    * this code will print popup body part discription
@@ -41,17 +51,30 @@ export class DynamicAnatomyComponent {
     if (event.id && this.config[event.id]?.enable) {
       this.highlightOrgan(event);
       this.config[event.id].enable = false;
+      this.addSelectedValue(this.config[event.id].hover);
     }
     if (event.id == 'turn_front') {
       const bacBase = document.getElementById('bck_base');
       const frtBase = document.getElementById('frt_base');
+      const rgtBase = document.getElementById('right_base');
       bacBase.style.display = 'none';
       frtBase.style.display = 'block';
+      rgtBase.style.display = 'none';
     } else if (event.id == 'turn_back') {
       const bacBase = document.getElementById('bck_base');
       const frtBase = document.getElementById('frt_base');
+      const rgtBase = document.getElementById('right_base');
       bacBase.style.display = 'block';
       frtBase.style.display = 'none';
+      rgtBase.style.display = 'none';
+    }
+    else if (event.id == 'turn_right_side') {
+      const bacBase = document.getElementById('bck_base');
+      const frtBase = document.getElementById('frt_base');
+      const rgtBase = document.getElementById('right_base');
+      bacBase.style.display = 'none';
+      frtBase.style.display = 'none';
+      rgtBase.style.display = 'block';
     }
   }
 
@@ -71,7 +94,10 @@ export class DynamicAnatomyComponent {
   @HostListener('dblclick', ['$event.target'])
   onMousedblClick(event: any) {
     this.highlightOrgan(event);
-    this.config[event.id].enable = true;
+    if (event.id) {
+      this.config[event.id].enable = true;
+      this.removeSelectedValue(this.config[event.id].hover);
+    }
   }
 
   /**
@@ -85,6 +111,8 @@ export class DynamicAnatomyComponent {
       const currentObj = document.getElementById(event.id);
       let { overColor, overOpacity, outlineOverColor, outlineOverOpacity } = this.config[event.id];
       this.changeStyle(currentObj, overColor, overOpacity, outlineOverColor, outlineOverOpacity);
+    } else {
+      this.organsTip.nativeElement.style.display = 'none';
     }
   }
 
@@ -93,11 +121,14 @@ export class DynamicAnatomyComponent {
    * @param event is passing current event object
    */
   resetHiglightOrgan(event: any) {
+
     if (event.id && this.config[event.id]?.enable) {
       this.organsTip.nativeElement.style.display = 'none';
       const currentObj = document.getElementById(event.id);
       let { upColor, upOpacity, outlineUpColor, outlineUpOpacity } = this.config[event.id];
       this.changeStyle(currentObj, upColor, upOpacity, outlineUpColor, outlineUpOpacity);
+    } else if (!event.id) {
+      this.organsTip.nativeElement.style.display = 'none';
     }
   }
 
@@ -114,6 +145,28 @@ export class DynamicAnatomyComponent {
     currentObj.style.fillOpacity = fillOpacity;
     currentObj.style.stroke = stroke;
     currentObj.style.strokeOpacity = strokeOpacity;
+  }
+
+  /**
+   * this code will store values
+   * @param data passing values to add
+   */
+  addSelectedValue(data: string) {
+    const index = this.selectedItems.indexOf(data);
+    if (index === -1) {
+      this.selectedItems.push(data);
+    }
+  }
+
+  /**
+   * this code will delete values
+   * @param data passing values to remove
+   */
+  removeSelectedValue(data: string) {
+    const index = this.selectedItems.indexOf(data);
+    if (index > -1) {
+      this.selectedItems.splice(index, 1);
+    }
   }
 
   constructor() { }
