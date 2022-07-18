@@ -9,6 +9,7 @@
     "outDir": "./dist/out-tsc",
     "paths": {
       "@app/*": ["src/app/*"],
+      "@features/*": ["src/app/features/*"],
       "@components/*": ["src/app/components/*"],
       "@interface/*": ["src/app/interface/*"],
       "@services/*": ["src/app/services/*"],

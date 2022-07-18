@@ -1,0 +1,28 @@
+.mr-10{
+    margin: 0 10px 0 10px;
+}
+
+.main {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.p-txt{
+    font-size: 24px;
+    color: #ea232a;;
+}
+
+.flex{
+    display: flex;
+}
+.align-center{
+    margin: auto;
+    width: 360px;
+    text-align: start;
+    padding: 24px 24px 24px 0;
+}
+
+.txt-align{
+    text-align: end;
+    padding-right: 0;
+}

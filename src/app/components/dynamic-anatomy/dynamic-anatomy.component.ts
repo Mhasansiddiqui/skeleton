@@ -17,12 +17,16 @@ export class DynamicAnatomyComponent implements OnChanges {
   @ViewChild('organsTip') organsTip: ElementRef;
 
   public selectedItems: Array<any> = [];
-  public noRecordSelected : string = MESSAGE_CONSTANT.NoRecordSelected;
+  public noRecordSelected: string = MESSAGE_CONSTANT.NoRecordSelected;
 
-  ngOnChanges(params : any){
-      if(params.id){
-          this.selectedItems = [];
-      }
+  ngOnChanges(params: any) {
+    if (params.id) {
+       this.selectedItems.forEach(item => {
+        params.config.previousValue[item.id].enable = true;
+       }) 
+       this.config = params.config.currentValue;
+      this.selectedItems = [];
+    }
   }
 
   /**
@@ -51,7 +55,7 @@ export class DynamicAnatomyComponent implements OnChanges {
     if (event.id && this.config[event.id]?.enable) {
       this.highlightOrgan(event);
       this.config[event.id].enable = false;
-      this.addSelectedValue(this.config[event.id].hover);
+      this.addSelectedValue(this.config[event.id].hover, event.id);
     }
     if (event.id == 'turn_front') {
       const bacBase = document.getElementById('bck_base');
@@ -59,14 +63,18 @@ export class DynamicAnatomyComponent implements OnChanges {
       const rgtBase = document.getElementById('right_base');
       bacBase.style.display = 'none';
       frtBase.style.display = 'block';
-      rgtBase.style.display = 'none';
+      if (rgtBase) {
+        rgtBase.style.display = 'none';
+      }
     } else if (event.id == 'turn_back') {
       const bacBase = document.getElementById('bck_base');
       const frtBase = document.getElementById('frt_base');
       const rgtBase = document.getElementById('right_base');
       bacBase.style.display = 'block';
       frtBase.style.display = 'none';
-      rgtBase.style.display = 'none';
+      if (rgtBase) {
+        rgtBase.style.display = 'none';
+      }
     }
     else if (event.id == 'turn_right_side') {
       const bacBase = document.getElementById('bck_base');
@@ -96,7 +104,7 @@ export class DynamicAnatomyComponent implements OnChanges {
     this.highlightOrgan(event);
     if (event.id) {
       this.config[event.id].enable = true;
-      this.removeSelectedValue(this.config[event.id].hover);
+      this.removeSelectedValue(event.id);
     }
   }
 
@@ -105,14 +113,14 @@ export class DynamicAnatomyComponent implements OnChanges {
    * @param event is passing current event object
    */
   highlightOrgan(event: any) {
-    if (event.id && event.id !== 'turn_back' && event.id !== 'turn_front' && this.config[event.id]?.enable) {
+    if (event.id && event.id !== 'turn_back' && event.id !== 'turn_front' && event.id !== 'turn_right_side') {
       this.organsTip.nativeElement.style.display = 'inline';
       this.organsTip.nativeElement.innerHTML = this.config[event.id]?.hover;
       const currentObj = document.getElementById(event.id);
       let { overColor, overOpacity, outlineOverColor, outlineOverOpacity } = this.config[event.id];
       this.changeStyle(currentObj, overColor, overOpacity, outlineOverColor, outlineOverOpacity);
     } else {
-      this.organsTip.nativeElement.style.display = 'none';
+      this.resetHiglightOrgan(event)
     }
   }
 
@@ -127,7 +135,8 @@ export class DynamicAnatomyComponent implements OnChanges {
       const currentObj = document.getElementById(event.id);
       let { upColor, upOpacity, outlineUpColor, outlineUpOpacity } = this.config[event.id];
       this.changeStyle(currentObj, upColor, upOpacity, outlineUpColor, outlineUpOpacity);
-    } else if (!event.id) {
+    }
+    else if (!event.id) {
       this.organsTip.nativeElement.style.display = 'none';
     }
   }
@@ -151,10 +160,10 @@ export class DynamicAnatomyComponent implements OnChanges {
    * this code will store values
    * @param data passing values to add
    */
-  addSelectedValue(data: string) {
-    const index = this.selectedItems.indexOf(data);
+  addSelectedValue(data: string, id: string) {
+    const index = this.selectedItems.findIndex((data : any) => data.id === id);
     if (index === -1) {
-      this.selectedItems.push(data);
+      this.selectedItems.push({ data, id });
     }
   }
 
@@ -162,8 +171,8 @@ export class DynamicAnatomyComponent implements OnChanges {
    * this code will delete values
    * @param data passing values to remove
    */
-  removeSelectedValue(data: string) {
-    const index = this.selectedItems.indexOf(data);
+  removeSelectedValue(id  : string) {
+    const index = this.selectedItems.findIndex((data : any) => data.id === id);
     if (index > -1) {
       this.selectedItems.splice(index, 1);
     }
