@@ -630,7 +630,8 @@ export const UNISEX_CONFIG_SETTINGS = {
     'downOpacity': '0.7',
     'outlineDownColor': '#ff8080',
     'outlineDownOpacity': '1',
-  }, 'bck_1': {
+  },
+   'bck_1': {
     'hover': '<b><u>HEAD</u></b><br><span style="color: #808080;">Set any part as:<br><b>"active"</b> > clickable or<br><b>"inactive"</b> > not clickable.</span>',
     'enable': !0,
     'url': 'NA/',
