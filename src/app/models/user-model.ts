@@ -4,7 +4,7 @@ export class UserModel {
     name : string;
     age : Age;
     gender  : GenderType;
-    system  : HumanSystem;
-    medicalSpeciality : MedicalSpeciality;
-    radiology : Radiology;
+    system?  : HumanSystem;
+    medicalSpeciality? : MedicalSpeciality;
+    radiology? : Radiology;
 }

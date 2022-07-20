@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { APPCONSTANT } from '@constants/anatomy-constant';
 import { UNISEX_CONFIG_SETTINGS } from '@settings/unisex-config';
 import { SKELETON_CONFIG_SETTINGS } from '@settings/skeleton-config';
@@ -18,11 +18,12 @@ export class AnatomyComponent implements OnInit {
   public config: iSkeleton;
   id: number;
   public appConstant : any = APPCONSTANT;
+  @Input() selectedAnatomy : number;
 
   constructor() { }
 
   ngOnInit() {
-    this.changeAnatomy(this.appConstant.ANATOMY.CHILD);
+    this.changeAnatomy(this.selectedAnatomy);
   }
   changeAnatomy(id?: number) {
     this.id = id;

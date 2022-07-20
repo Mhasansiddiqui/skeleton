@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { iSkeleton } from '@interface/skeleton-interface';
 import { APPCONSTANT } from '@constants/anatomy-constant';
 import { MESSAGE_CONSTANT } from '@app/constants/message-constants';
@@ -21,10 +21,10 @@ export class DynamicAnatomyComponent implements OnChanges {
 
   ngOnChanges(params: any) {
     if (params.id) {
-       this.selectedItems.forEach(item => {
+      this.selectedItems.forEach(item => {
         params.config.previousValue[item.id].enable = true;
-       }) 
-       this.config = params.config.currentValue;
+      })
+      this.config = params.config.currentValue;
       this.selectedItems = [];
     }
   }
@@ -161,7 +161,7 @@ export class DynamicAnatomyComponent implements OnChanges {
    * @param data passing values to add
    */
   addSelectedValue(data: string, id: string) {
-    const index = this.selectedItems.findIndex((data : any) => data.id === id);
+    const index = this.selectedItems.findIndex((data: any) => data.id === id);
     if (index === -1) {
       this.selectedItems.push({ data, id });
     }
@@ -171,8 +171,8 @@ export class DynamicAnatomyComponent implements OnChanges {
    * this code will delete values
    * @param data passing values to remove
    */
-  removeSelectedValue(id  : string) {
-    const index = this.selectedItems.findIndex((data : any) => data.id === id);
+  removeSelectedValue(id: string) {
+    const index = this.selectedItems.findIndex((data: any) => data.id === id);
     if (index > -1) {
       this.selectedItems.splice(index, 1);
     }

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from '@app/features/home/home.component';
+import { VitalComponent } from '@app/features/vital-check/vital-check.component';
 import { AnatomyComponent } from '@features/anatomy/anatomy.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: VitalComponent
   }
 ];
 
